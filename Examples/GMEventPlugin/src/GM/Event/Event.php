@@ -98,14 +98,21 @@ class Event implements EventInterface {
     }
 
 
+    function get_hooking( $hook = '' ) {
+        $hooked = \array_keys( $this->factory->get( 'hooks' ), $hook, true );
+        return ( empty( $hooked ) ) ? FALSE : $this->factory->get_event_objs( $hooked );
+    }
+
+
     function fire() {
         $args = func_get_args();
         $f = \array_shift( $args );
-        if ( empty( $f ) || $f !== \current_filter() ) return;
-        $hooked = \array_keys( $this->factory->get( 'hooks' ), $f, true );
-        if ( empty( $hooked ) ) return;
-        self::$proxy[$f] = $this->factory->get_event_objs( $hooked );
-        $this->parse_hooks( $f );
+        if ( ! empty( $f ) && $f === \current_filter() ) {
+            $hooks = $this->get_hooking( $f );
+            if ( ! \is_array( $hooks ) || empty( $hooks ) ) return;
+            self::$proxy[$f] = $hooks;
+            $this->parse_hooks( $f );
+        }
     }
 
 

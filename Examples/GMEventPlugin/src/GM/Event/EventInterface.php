@@ -76,6 +76,16 @@ interface EventInterface {
 
 
     /**
+     * Get all events hooking a specific hook
+     *
+     * @param string $hook the hook to retrieve
+     * @return array
+     * @access public
+     */
+    function get_hooking( $hook = '' );
+
+
+    /**
      * Fire the registered events on 'all' hook
      *
      * @return null
