@@ -1,6 +1,6 @@
 WordPress plugin API has some lacks when used with OOP: even if adding or triggering events is super-easy thanks to `add_action` \ `add_filter` and `do_action` / `apply_filters` removing and event or debug it is not as easy:
 
-Take the example:
+See following example:
 
     // An hook in a object
     class aClass {
@@ -18,7 +18,7 @@ Take the example:
     remove_action('init', ???? ); // replace the '?'...
     
     
-The `GM\Event` package is an OOP component built upon the WordPress core plugin API, but allow to attach named events, i.e. events with a predictable unique identifier, and for that reason is easily removable and editable.
+The `GM\Event` package is an OOP component built upon the WordPress core plugin API, but allow to attach named events, i.e. events with a predictable unique identifier, and for that reason, easily removable and editable.
 
 Being an OOP package, all events are objects where properties are all the WordPress event informations (callable, priority, accepted args) plus some additional ones:
 
@@ -34,7 +34,7 @@ Package contains 2 other classes:
 
 Package is **not** a full plugin, but is a component that can be used in every project (plugin, theme). All classes make use of dependency injection, so if some complex project make use of a DI container, implement `GM\Event` package will be super easy.
 
-Even if is not strictly necessary, is highly recommend to use the `GM\Event\Event` class as a singleton service, using a DI container will also help in that.
+Even if is not strictly necessary, is highly recommend to use the `GM\Event\Event` class as a singleton service, and using a DI container will also help in that.
 
 ----------
 
@@ -42,7 +42,7 @@ Even if is not strictly necessary, is highly recommend to use the `GM\Event\Even
 
 ### Bootstrap ###
 
-First thing needed is requrire all the package files or, of course, use an autoloader. The package is **full `PSR-0` compliant**.
+First thing needed is require all the package files or, of course, use an autoloader. The package is **full `PSR-0` compliant**.
 
     require_once '/path/to/package/GM/Event/EventFactoryInterface.php';
     require_once '/path/to/package/GM/Event/EventInterface.php';
@@ -74,18 +74,18 @@ After that is possible to instantiate the `GM\Event\Event` taking care of depend
     
 ### Detaching Events ###
 
-    $event->detach( 'myplugin.eventid');
+    $event->detach( 'myplugin.eid');
 
 ### Replacing Event Callable ###
 
-    $event->replace( 'myplugin.eventid', function($foo, $bar) { echo "I don't like {$foo} nor {$bar}!"; });
+    $event->replace( 'myplugin.eid', function($foo, $bar) { echo "Don't like {$foo} nor {$bar}"; });
 
 ----------
 
 # Examples: the plugin #
 
-In "Examples" folder of repository there a WordPress that make use of the package. Probably it is not very useful in production sites, but I added it to demonstrate how to implente the package.
-What this plugin do is:
+In "Examples" folder of repository there is a WordPress plugin that make use of the package. Probably it is not very useful in production sites, but I added it to demonstrate how to implement the package.
+What this plugin does is:
 
  - add an autoloader for package classes
  - instantiate the `GM\Event\Event` class as singleton service
