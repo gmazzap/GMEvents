@@ -54,14 +54,14 @@ First thing needed is requrire all the package files or, of course, use an autol
 After that is possible to instantiate the `GM\Event\Event` taking care of dependencies. Then launch the `setup()` method on the instance:
 
     $item = new GM\Event\EventItem;
-$factory = new GM\Event\EventFactory( $item );
-$event = new GM\Event\Event( $factory );
-$event->setup();
+    $factory = new GM\Event\EventFactory( $item );
+    $event = new GM\Event\Event( $factory );
+    $event->setup();
 
 ### Attaching Events ###
 
     $data = array(
-  'cb' => function( $foo, $bar ) { echo 'Foo is ' . $foo . ' and Bar is'  $bar; }, // event callable
+    'cb' => function( $foo, $bar ) { echo 'Foo is ' . $foo . ' and Bar is'  $bar; }, // event callable
       'priority' => 20,
       'numargs' => 2, // accepted args
       'times' => 1 // this event will run once
