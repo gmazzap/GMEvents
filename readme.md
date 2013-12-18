@@ -38,6 +38,10 @@ Even if is not strictly necessary, is highly recommend to use the `GM\Event\Even
 
 ----------
 
+See the [blog post](http://gm.zoomlab.it/2013/long-standing-issue-oop-wp-hooks-solution/)
+
+----------
+
 # Usage #
 
 ### Bootstrap ###
