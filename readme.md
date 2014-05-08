@@ -1,4 +1,4 @@
-This plugin was written a s a proof of concept for the blog post linked below. It is not inted to be used in real world. If you are interested in something similar have a look to [Striatum](https://github.com/Giuseppe-Mazzapica/Striatum).
+This plugin was written a s a proof of concept for the blog post linked below. It is not intended to be used in real world. If you are interested in something similar have a look to [Striatum](https://github.com/Giuseppe-Mazzapica/Striatum).
 
 _______________
 
