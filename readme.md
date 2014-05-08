@@ -1,3 +1,7 @@
+This plugin was written a s a proof of concept for the blog post linked below. It is not inted to be used in real world. If you are interested in something similar have a look to [Striatum](https://github.com/Giuseppe-Mazzapica/Striatum).
+
+_______________
+
 WordPress plugin API has some lacks when used with OOP: even if adding or triggering events is super-easy thanks to `add_action` \ `add_filter` and `do_action` / `apply_filters` removing and event or debug it is not as easy:
 
 See following example:
